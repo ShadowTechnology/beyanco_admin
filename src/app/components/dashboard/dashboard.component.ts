@@ -4,10 +4,11 @@ import { QuickActionsComponent } from '../quick-actions/quick-actions.component'
 import { StatCardComponent } from '../stat-card/stat-card.component';
 import { ChartCardComponent } from '../chart-card/chart-card.component';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RecentProjectsComponent, QuickActionsComponent, StatCardComponent, ChartCardComponent],
+  imports: [CommonModule, RouterModule, RecentProjectsComponent, QuickActionsComponent, StatCardComponent, ChartCardComponent],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']

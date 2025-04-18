@@ -12,7 +12,7 @@ export class RecentProjectsComponent {
   projects = [
     {
       name: 'Modern Living Room',
-      image: 'assets/dashboard/living-room.jpg',
+      image: 'assets/dashboard/bedroom.png',
       tags: ['Living Room', 'Modern'],
       date: '2 days ago',
     },
@@ -24,7 +24,7 @@ export class RecentProjectsComponent {
     },
     {
       name: 'Cozy Bedroom',
-      image: 'assets/dashboard/bedroom.jpg',
+      image: 'assets/dashboard/bedroom.png',
       tags: ['Bedroom', 'Scandinavian'],
       date: '1 week ago',
     },
