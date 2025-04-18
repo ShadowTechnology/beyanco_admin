@@ -1,7 +1,8 @@
 <div class="layout">
   <app-sidebar (collapseChanged)="handleCollapse($event)"></app-sidebar>
-  <app-header [title]="'Dashboard'"></app-header>
   <main class="main" [class.collapsed]="isCollapsed">
+    <app-header [title]="'Dashboard'"></app-header>
+
     <router-outlet></router-outlet>
   </main>
 </div>
