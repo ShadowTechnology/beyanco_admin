@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from "./components/sidebar/sidebar/sidebar.component";
-import { HeaderComponent } from "./components/header/header/header.component";
+import { HeaderComponent } from './components/header/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +13,9 @@ import { HeaderComponent } from "./components/header/header/header.component";
 export class AppComponent {
   title = 'beyanco_admin';
   sidebarOpen = true;
+  isCollapsed = false;
 
-  toggleSidebar() {
-    this.sidebarOpen = !this.sidebarOpen;
+  handleCollapse(collapsed: boolean) {
+    this.isCollapsed = collapsed;
   }
 }

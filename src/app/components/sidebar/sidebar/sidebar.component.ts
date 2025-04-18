@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { HeaderTitleService } from '../../services/header-title-service.service';
 
 @Component({
@@ -12,13 +12,22 @@ import { HeaderTitleService } from '../../services/header-title-service.service'
 export class SidebarComponent {
   collapsed = false;
 
+  @Output() collapseChanged = new EventEmitter<boolean>();
+
   constructor(private router: Router, private headerTitleService: HeaderTitleService) {}
 
   toggleSidebar() {
     this.collapsed = !this.collapsed;
+    this.collapseChanged.emit(this.collapsed);
   }
 
-  // Method to change the header title based on selected route
+  ngOnInit() {
+    this.router.events.subscribe(() => {
+      const currentRoute = this.router.url;
+      this.changeTitleBasedOnRoute(currentRoute);
+    });
+  }
+
   changeTitleBasedOnRoute(route: string) {
     switch(route) {
       case '/dashboard':
@@ -39,13 +48,5 @@ export class SidebarComponent {
       default:
         this.headerTitleService.setTitle('Dashboard');
     }
-  }
-
-  // Listen to router events and update the title when the route changes
-  ngOnInit() {
-    this.router.events.subscribe(() => {
-      const currentRoute = this.router.url;
-      this.changeTitleBasedOnRoute(currentRoute);
-    });
   }
 }

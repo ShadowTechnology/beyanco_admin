@@ -1,13 +1,10 @@
-:host {
-  display: flex;
-}
-
 .main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 16rem; // Same as sidebar width
-}
-.main.collapsed {
-  margin-left: 4rem; // collapsed sidebar width
+  margin-left: 16rem;
+  transition: margin-left 0.3s ease;
+
+  &.collapsed {
+    margin-left: 4rem;
+  }
+  min-height: 100vh;
+  padding: 1rem;
 }
